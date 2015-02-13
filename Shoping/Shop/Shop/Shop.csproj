@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accountant\AccountsCmd.cs" />
     <Compile Include="Customers\CustomersCmd.cs" />
     <Compile Include="Customers\FrmCustomersManager.cs">
       <SubType>Form</SubType>

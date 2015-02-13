@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop.Accountant;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,10 @@ namespace Shop.Suppliers
                 MessageBox.Show("لا يجوز ترك الاسم فارغ","تنبيه");
                 return;
                  }
+
+
+           AccountsCmd. ChangeAccountName(TargetSupplier.AccountID, txtSupplierName.Text);
+
             TargetSupplier.SupplierName = txtSupplierName.Text;
             TargetSupplier.Address = txtAddress.Text;
             TargetSupplier.Phone = txtPhone.Text;
@@ -41,6 +46,7 @@ namespace Shop.Suppliers
 
         private  static bool EditSupplier(Db.SuppliersRow sup)
         {
+           
            Db.SuppliersRow  Rw = DbManager.ShopData.Suppliers .NewSuppliersRow ();
             Rw = (from u in DbManager.ShopData.Suppliers  where u.ID == sup .ID  select u).Single();
             Rw.SupplierName = sup.SupplierName;
@@ -50,5 +56,8 @@ namespace Shop.Suppliers
             DbManager.SaveChanges();
             return true;
         }
+
+
+
     }
 }

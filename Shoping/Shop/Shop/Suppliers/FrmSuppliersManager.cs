@@ -83,7 +83,7 @@ namespace Shop.Suppliers
             DgvSuppliers.Rows.Clear();
             foreach (var sup in GetAll )
             {
-                DgvSuppliers.Rows.Add(new string[] { sup .ID .ToString (), sup .SupplierName , sup.Address , sup .Phone });
+                DgvSuppliers.Rows.Add(new string[] { sup .ID .ToString (), sup .SupplierName , sup.Address , sup .Phone ,sup.AccountID .ToString ()});
             }
         }
         void broom()
@@ -101,7 +101,7 @@ namespace Shop.Suppliers
             // int row = this.DgvUsers.CurrentCell.RowIndex;
 
             Db.SuppliersRow rw =  GetSupplierById(int.Parse(DgvSuppliers.CurrentRow.Cells[0].Value.ToString()));
-            if (col.ToString() == "4")
+            if (col.ToString() == "5")
             {
                 FrmEditSupplier frm = new FrmEditSupplier();
 
@@ -109,8 +109,14 @@ namespace Shop.Suppliers
                 frm.ShowDialog();
             }
 
-            if (col.ToString() == "5")
+            if (col.ToString() == "6")
             {
+                Db.AccountsRow act = (from a in DbManager.ShopData.Accounts
+                                      where a.ID == rw.AccountID 
+                                      select a).Single();
+                DbManager.ShopData.Accounts.RemoveAccountsRow(act);
+                DbManager.SaveChanges();
+                //============================================================
                 DbManager.ShopData.Suppliers.RemoveSuppliersRow(rw);
                 FrmSuppliersManager_Load(sender, e);
             }

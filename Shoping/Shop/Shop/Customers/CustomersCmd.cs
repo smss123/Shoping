@@ -16,6 +16,8 @@ namespace Shop.Customers
             c.CustomerName = cst.CustomerName;
             c.Address = cst.Address;
             c.Phone = cst.Phone;
+            c.AccountID = cst.AccountID;
+
             DbManager.ShopData.Customers.AddCustomersRow(c);
             DbManager.SaveChanges();
             return true;
@@ -27,7 +29,27 @@ namespace Shop.Customers
             return GetAll;
         }
 
+        public static bool EditCustomer(Db.CustomersRow cst)
+        {
+            Db.CustomersRow c = DbManager.ShopData.Customers.Where(b => b.ID == cst.ID).Single();
+            c.CustomerName = cst.CustomerName;
+            c.Address = cst.Address;
+            c.Phone = cst.Phone;
+       
+            DbManager.SaveChanges();
+            return true;
+        }
+        public static Db.CustomersRow GetById (int cstid)
+        {
+            Db.CustomersRow c = DbManager.ShopData.Customers.Where(b => b.ID == cstid).Single();
+            return c;
+        }
 
+        public static Db.CustomersRow GetByName(string cstname)
+        {
+            Db.CustomersRow c = DbManager.ShopData.Customers.Where(b => b.CustomerName == cstname ).Single();
+            return c;
+        }
 
     }
 }

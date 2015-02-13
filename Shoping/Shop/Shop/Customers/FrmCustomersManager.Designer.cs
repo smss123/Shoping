@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.SaveBtn = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.FrishBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DgvCustomers = new System.Windows.Forms.DataGridView();
             this.Column1ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,10 +45,12 @@
             this.ColumnAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.FrishBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCustomers)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -69,49 +69,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "البــــانات الاساسية";
             // 
-            // groupBox2
+            // SaveBtn
             // 
-            this.groupBox2.Controls.Add(this.DgvCustomers);
-            this.groupBox2.Location = new System.Drawing.Point(12, 140);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(681, 323);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "قــــــــائمة العــــملاء";
-            // 
-            // txtName
-            // 
-            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtName.Location = new System.Drawing.Point(367, 21);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(222, 22);
-            this.txtName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(613, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "الاسم";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "العنوان";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtAddress.Location = new System.Drawing.Point(19, 21);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(271, 22);
-            this.txtAddress.TabIndex = 2;
+            this.SaveBtn.Image = global::Shop.Properties.Resources.page_save;
+            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SaveBtn.Location = new System.Drawing.Point(19, 49);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(78, 38);
+            this.SaveBtn.TabIndex = 6;
+            this.SaveBtn.Text = "حــــــــفظ";
+            this.SaveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // label3
             // 
@@ -130,36 +99,49 @@
             this.txtPhone.Size = new System.Drawing.Size(222, 22);
             this.txtPhone.TabIndex = 4;
             // 
-            // SaveBtn
+            // label2
             // 
-            this.SaveBtn.Image = global::Shop.Properties.Resources.page_save;
-            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SaveBtn.Location = new System.Drawing.Point(19, 49);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(78, 38);
-            this.SaveBtn.TabIndex = 6;
-            this.SaveBtn.Text = "حــــــــفظ";
-            this.SaveBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveBtn.UseVisualStyleBackColor = true;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(314, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "العنوان";
             // 
-            // menuStrip1
+            // txtAddress
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FrishBtn});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(705, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtAddress.Location = new System.Drawing.Point(19, 21);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(271, 22);
+            this.txtAddress.TabIndex = 2;
             // 
-            // FrishBtn
+            // label1
             // 
-            this.FrishBtn.Name = "FrishBtn";
-            this.FrishBtn.Size = new System.Drawing.Size(125, 20);
-            this.FrishBtn.Text = "تحــــــديث البـــــــــانات";
-            this.FrishBtn.Click += new System.EventHandler(this.FrishBtn_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(613, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "الاسم";
+            // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtName.Location = new System.Drawing.Point(367, 21);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(222, 22);
+            this.txtName.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.DgvCustomers);
+            this.groupBox2.Location = new System.Drawing.Point(12, 140);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(681, 323);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "قــــــــائمة العــــملاء";
             // 
             // DgvCustomers
             // 
@@ -182,6 +164,7 @@
             this.DgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvCustomers.Size = new System.Drawing.Size(656, 271);
             this.DgvCustomers.TabIndex = 0;
+            this.DgvCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCustomers_CellClick);
             // 
             // Column1ID
             // 
@@ -228,12 +211,30 @@
             this.ColumnDelete.ReadOnly = true;
             this.ColumnDelete.Text = "حذف";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FrishBtn});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(701, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // FrishBtn
+            // 
+            this.FrishBtn.Name = "FrishBtn";
+            this.FrishBtn.Size = new System.Drawing.Size(125, 20);
+            this.FrishBtn.Text = "تحــــــديث البـــــــــانات";
+            this.FrishBtn.Click += new System.EventHandler(this.FrishBtn_Click);
+            // 
             // FrmCustomersManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(705, 487);
+            this.ClientSize = new System.Drawing.Size(701, 487);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -249,9 +250,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvCustomers)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvCustomers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

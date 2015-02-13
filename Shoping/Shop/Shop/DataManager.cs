@@ -137,11 +137,11 @@ namespace Shop
             	        Directory.CreateDirectory(Dir);	 
         	        }
              ShopData = new Db();
-      //-- End Createing Directory
+             //-- End Createing Directory
               DataFileName = "ShopData.AbuEhab";
               FullPath = Dir+"\\"+DataFileName;
               ReadData(FullPath);
-        //---- Read Data
+             //---- Read Data
     }
 
 
