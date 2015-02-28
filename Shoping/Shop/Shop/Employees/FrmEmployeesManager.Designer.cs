@@ -32,15 +32,6 @@
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.DgvEmployees = new System.Windows.Forms.DataGridView();
-            this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FreishBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -54,6 +45,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.WorkPicker = new System.Windows.Forms.DateTimePicker();
             this.SaveBtn = new System.Windows.Forms.Button();
+            this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEmployees)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -72,11 +72,14 @@
             // 
             // SearchBox
             // 
+            this.SearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SearchBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.SearchBox.Location = new System.Drawing.Point(420, 303);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(334, 22);
             this.SearchBox.TabIndex = 15;
             this.SearchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             // 
             // label6
             // 
@@ -113,75 +116,9 @@
             this.DgvEmployees.Name = "DgvEmployees";
             this.DgvEmployees.ReadOnly = true;
             this.DgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvEmployees.Size = new System.Drawing.Size(826, 273);
+            this.DgvEmployees.Size = new System.Drawing.Size(837, 273);
             this.DgvEmployees.TabIndex = 0;
             this.DgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmployees_CellClick);
-            // 
-            // ColID
-            // 
-            this.ColID.HeaderText = "ID";
-            this.ColID.Name = "ColID";
-            this.ColID.ReadOnly = true;
-            this.ColID.Visible = false;
-            this.ColID.Width = 10;
-            // 
-            // ColName
-            // 
-            this.ColName.HeaderText = "الاسم";
-            this.ColName.Name = "ColName";
-            this.ColName.ReadOnly = true;
-            this.ColName.Width = 170;
-            // 
-            // ColAddress
-            // 
-            this.ColAddress.HeaderText = "العنوان";
-            this.ColAddress.Name = "ColAddress";
-            this.ColAddress.ReadOnly = true;
-            this.ColAddress.Width = 170;
-            // 
-            // ColPhone
-            // 
-            this.ColPhone.HeaderText = "التلفون";
-            this.ColPhone.Name = "ColPhone";
-            this.ColPhone.ReadOnly = true;
-            // 
-            // ColSalary
-            // 
-            this.ColSalary.HeaderText = "الراتب";
-            this.ColSalary.Name = "ColSalary";
-            this.ColSalary.ReadOnly = true;
-            this.ColSalary.Width = 50;
-            // 
-            // ColWork
-            // 
-            this.ColWork.HeaderText = "تاريخ العمل";
-            this.ColWork.Name = "ColWork";
-            this.ColWork.ReadOnly = true;
-            // 
-            // ColAccount
-            // 
-            this.ColAccount.HeaderText = "رقم الحساب";
-            this.ColAccount.Name = "ColAccount";
-            this.ColAccount.ReadOnly = true;
-            this.ColAccount.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Text = "تعديل";
-            this.Column7.UseColumnTextForButtonValue = true;
-            this.Column7.Width = 50;
-            // 
-            // ColDelete
-            // 
-            this.ColDelete.HeaderText = "";
-            this.ColDelete.Name = "ColDelete";
-            this.ColDelete.ReadOnly = true;
-            this.ColDelete.Text = "حذف";
-            this.ColDelete.UseColumnTextForButtonValue = true;
-            this.ColDelete.Width = 50;
             // 
             // menuStrip1
             // 
@@ -208,6 +145,7 @@
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtName.Location = new System.Drawing.Point(64, 47);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(201, 22);
@@ -234,6 +172,7 @@
             // txtPhone
             // 
             this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhone.Location = new System.Drawing.Point(591, 40);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(201, 22);
@@ -251,6 +190,7 @@
             // txtAddess
             // 
             this.txtAddess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtAddess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddess.Location = new System.Drawing.Point(333, 44);
             this.txtAddess.Name = "txtAddess";
             this.txtAddess.Size = new System.Drawing.Size(201, 22);
@@ -268,6 +208,7 @@
             // txtSalary
             // 
             this.txtSalary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtSalary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSalary.Location = new System.Drawing.Point(333, 72);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(114, 22);
@@ -306,6 +247,73 @@
             this.SaveBtn.Text = "حــــــفظ";
             this.SaveBtn.UseVisualStyleBackColor = true;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // ColID
+            // 
+            this.ColID.HeaderText = "ID";
+            this.ColID.Name = "ColID";
+            this.ColID.ReadOnly = true;
+            this.ColID.Visible = false;
+            this.ColID.Width = 10;
+            // 
+            // ColName
+            // 
+            this.ColName.HeaderText = "الاسم";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            this.ColName.Width = 170;
+            // 
+            // ColAddress
+            // 
+            this.ColAddress.HeaderText = "العنوان";
+            this.ColAddress.Name = "ColAddress";
+            this.ColAddress.ReadOnly = true;
+            this.ColAddress.Width = 150;
+            // 
+            // ColPhone
+            // 
+            this.ColPhone.HeaderText = "التلفون";
+            this.ColPhone.Name = "ColPhone";
+            this.ColPhone.ReadOnly = true;
+            // 
+            // ColSalary
+            // 
+            this.ColSalary.HeaderText = "الراتب";
+            this.ColSalary.Name = "ColSalary";
+            this.ColSalary.ReadOnly = true;
+            this.ColSalary.Width = 40;
+            // 
+            // ColWork
+            // 
+            this.ColWork.HeaderText = "تاريخ العمل";
+            this.ColWork.Name = "ColWork";
+            this.ColWork.ReadOnly = true;
+            this.ColWork.Width = 120;
+            // 
+            // ColAccount
+            // 
+            this.ColAccount.HeaderText = "رقم الحساب";
+            this.ColAccount.Name = "ColAccount";
+            this.ColAccount.ReadOnly = true;
+            this.ColAccount.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Text = "تعديل";
+            this.Column7.UseColumnTextForButtonValue = true;
+            this.Column7.Width = 50;
+            // 
+            // ColDelete
+            // 
+            this.ColDelete.HeaderText = "";
+            this.ColDelete.Name = "ColDelete";
+            this.ColDelete.ReadOnly = true;
+            this.ColDelete.Text = "حذف";
+            this.ColDelete.UseColumnTextForButtonValue = true;
+            this.ColDelete.Width = 50;
             // 
             // FrmEmployeesManager
             // 

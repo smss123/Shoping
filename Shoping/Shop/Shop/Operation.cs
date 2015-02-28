@@ -10,10 +10,7 @@ namespace Shop
     public   class Operation
     {
 
-        public static void ShowMassege(string msg, Control frm)
-        {
-            ToastNotification.Show(frm, msg, null, 1000, eToastGlowColor.Green, eToastPosition.MiddleCenter);
-        }
+      
         public static void BeginOperation(Control frm)
         {
             frm.Invoke((MethodInvoker)delegate
@@ -35,5 +32,7 @@ namespace Shop
 
             });
         }
+
+      
     }
 }

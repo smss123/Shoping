@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+
 namespace Shop.Suppliers
 {
     public partial class FrmSuppliersManager : Form
@@ -23,20 +24,20 @@ namespace Shop.Suppliers
             {
                 if (txtSupplierName.Text == "") { return; }
                 Db.SuppliersRow GetHim = GetSupplierByName(txtSupplierName.Text);
-                MessageBox.Show("موجود بالفــعل");
+                Alert.Warning ("موجود بالفــعل");
                 return;
             }
             catch (Exception)
             {
                 //====================================================================
                 AcctId = 0;
-                Db.AccountsRow act = DbManager.ShopData.Accounts.NewAccountsRow();
-                act.AccountName = txtSupplierName.Text;
-                act.Description = "Supplier";
-                act.AccountCategoryID = 5;
-                DbManager.ShopData.Accounts.AddAccountsRow(act);
+                Db.AccountsRow SupplierAct = DbManager.ShopData.Accounts.NewAccountsRow();
+                SupplierAct.AccountName = txtSupplierName.Text;
+                SupplierAct.Description = "Supplier";
+                SupplierAct.AccountCategoryID = 2;
+                DbManager.ShopData.Accounts.AddAccountsRow(SupplierAct);
                 DbManager.SaveChanges();
-                AcctId = act.ID;
+                AcctId = SupplierAct.ID;
                 //====================================================================
                 Db.SuppliersRow Suplr = DbManager.ShopData.Suppliers.NewSuppliersRow();
                 Suplr.SupplierName = txtSupplierName .Text ;
@@ -45,7 +46,7 @@ namespace Shop.Suppliers
                 Suplr.AccountID =  AcctId ;
                 DbManager.ShopData.Suppliers.AddSuppliersRow(Suplr);
                 DbManager.SaveChanges();
-                MessageBox.Show("تــم الحــــــفظ بنجــاح");
+                Alert.Info("تــم الحــــــفظ بنجــاح");
                 FrmSuppliersManager_Load(sender, e);
                 
             }
@@ -77,6 +78,10 @@ namespace Shop.Suppliers
 
             PopulateDgv();
         }
+
+
+
+
         void PopulateDgv() {
 
             List<Db.SuppliersRow> GetAll = GetAllSuppliers();
@@ -85,6 +90,9 @@ namespace Shop.Suppliers
             {
                 DgvSuppliers.Rows.Add(new string[] { sup .ID .ToString (), sup .SupplierName , sup.Address , sup .Phone ,sup.AccountID .ToString ()});
             }
+           Styles. GridFullStyle(DgvSuppliers);
+        
+
         }
         void broom()
         {

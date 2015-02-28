@@ -31,6 +31,19 @@ namespace Shop.Products
             {
                 DgvProducts.Rows.Add(new string[] {Prd.ID.ToString(), Prd.ProductName, Prd.Description});
             }
+
+            DgvProducts.RowHeadersWidth = 70;
+            DgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvProducts.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvProducts.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            foreach (DataGridViewRow R in DgvProducts.Rows)
+            {
+                R.HeaderCell.Value = (R.Index + 1).ToString();
+
+            }
+
         }
         private void FrmProductsManager_Load(object sender, EventArgs e)
         {
@@ -76,6 +89,33 @@ namespace Shop.Products
 
 
 
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+            if (txtName.Text != "")
+            {
+                List<Db.ProductsRow> LstProducts = (from c in CategoryCmd.GetAllProducts()
+                                                    where c.ProductName.Contains(txtName.Text)
+                                                    select c).ToList();
+
+                DgvProducts.Rows.Clear();
+                foreach (var Prd in LstProducts)
+                {
+                    DgvProducts.Rows.Add(new string[] { Prd.ID.ToString(), Prd.ProductName, Prd.Description });
+                }
+            }
+            else
+            {
+                List<Db.ProductsRow> LstProducts = CategoryCmd.GetAllProducts();
+                DgvProducts.Rows.Clear();
+                foreach (var Prd in LstProducts)
+                {
+                    DgvProducts.Rows.Add(new string[] { Prd.ID.ToString(), Prd.ProductName, Prd.Description });
+                }
+            }
+       
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Shop.Accountant
             if (CategId == 0) { CmbCategories_SelectedIndexChanged(sender, e); }
             
 
-            if (txtProductName.Text == "") { Operation.ShowMassege("أضــــــف النـــتج", this); return; }
+            if (txtProductName.Text == "") { Alert.Warning ("أضــــــف النـــتج"); return; }
           
         
 

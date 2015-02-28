@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Shop.Accountant
+namespace Shop.Sales
 {
-    public partial class FrmAccountDaily : Form
+    public partial class FrmAddInvoiceSales : Form
     {
-        public FrmAccountDaily()
+        public FrmAddInvoiceSales()
         {
             InitializeComponent();
         }

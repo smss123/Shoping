@@ -15,7 +15,7 @@ namespace Shop.Users
         {
             InitializeComponent();
         }
-   
+  
         private void FrmAddUser_Load(object sender, EventArgs e)
         {
             ClearTxt();
@@ -39,7 +39,7 @@ namespace Shop.Users
             r.UserPassword = txtPassword.Text;
             UsersCmd.NewUser(r);
             
-           MessageBox .Show  ("تــم الحــــــفظ بنجــاح");
+          Alert .Info  ("تــم الحــــــفظ بنجــاح");
            ClearTxt();
             }
           

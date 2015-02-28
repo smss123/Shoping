@@ -49,5 +49,19 @@ namespace Shop.Accountant
            return GetAll;
        }
 
+       public static Db.ItemesStoreRow GetByItemId(int ItmiD)
+       {
+          Db.ItemesStoreRow GetOne = (from i in DbManager.ShopData.ItemesStore
+                                             where i.ItemID == ItmiD
+                                             select i).Single ();
+           return GetOne;
+       }
+
+       public static List<Db.ItemesStoreRow> GetAllItems()
+       {
+           List<Db.ItemesStoreRow> GetAll = (from i in DbManager.ShopData.ItemesStore
+                                             select i).ToList();
+           return GetAll;
+       }
     }
 }

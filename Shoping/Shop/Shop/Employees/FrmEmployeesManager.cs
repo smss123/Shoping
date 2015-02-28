@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+
 namespace Shop.Employees
 {
     public partial class FrmEmployeesManager : Form
@@ -18,51 +19,63 @@ namespace Shop.Employees
 
         private void FreishBtn_Click(object sender, EventArgs e)
         {
-            FrmEmployeesManager_Load(sender, e);
+            ClearTxt();
+            PopulaetDgv();
 
         }
+        static DataManager DbManager = new DataManager();
+
+        public static List<Db.EmployeesRow> GetAllEmployees()
+        {
+            List<Db.EmployeesRow> GetAll = (from emp
+                                            in DbManager.ShopData.Employees
+                                            orderby emp.EmployeeName ascending
+                                            select emp).ToList();
+            return GetAll;
+        }
+
+
 
         void PopulaetDgv()
         {
-            List<Db.EmployeesRow> LstEmployeess = EmployeesCmd.GetAllEmployees();
+          
+            List<Db.EmployeesRow> LstEmployeess = GetAllEmployees();
           
       
                 DgvEmployees.Rows.Clear();
                 foreach (var emp in LstEmployeess )
                 {
-                    DgvEmployees.Rows.Add(new string[] {emp.ID .ToString (),
-                        emp .EmployeeName ,emp.Address , emp.Phone ,
-                       emp.Salary .ToString (), emp.StartWorkAt.ToString () , emp.AccountID .ToString ()
+                    DgvEmployees.Rows.Add(new string[] {emp.ID .ToString (),emp .EmployeeName ,emp.Address , emp.Phone , emp.Salary .ToString (), emp.StartWorkAt.ToString () , emp.AccountID .ToString ()                       
                     });
                 }
-           
+                Styles.GridFullStyle(DgvEmployees);
         }
         private void FrmEmployeesManager_Load(object sender, EventArgs e)
         {
-           
+            ClearTxt();
             PopulaetDgv();
        
         }
-        static DataManager DbManager = new DataManager();
+       
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-            if (txtName.Text == "") { MessageBox.Show("أدخل الاسم للضــرورة"); return;  }
+                if (txtName.Text == "") { Alert.Warning("أدخل الاسم للضــرورة"); return; }
             //============================================================
             Db.EmployeesRow emp = EmployeesCmd.GetByName(txtName.Text);
-            MessageBox.Show("موجــــود بالفـعل");
+            Alert.Warning("موجــــود بالفـعل");
             ClearTxt(); return; 
             }
             catch (Exception)
             {
                 //==================================================================
                 // Create Account
-                Db.AccountsRow act = DbManager.ShopData.Accounts.NewAccountsRow();
-                act.AccountName = txtName.Text;
-                act.Description = "Employee";
-                act.AccountCategoryID = 3;
-                DbManager.ShopData.Accounts.AddAccountsRow(act);
+                Db.AccountsRow EmpolyeeAct = DbManager.ShopData.Accounts.NewAccountsRow();
+                EmpolyeeAct.AccountName = txtName.Text;
+                EmpolyeeAct.Description = "Employee";
+                EmpolyeeAct.AccountCategoryID = 4;
+                DbManager.ShopData.Accounts.AddAccountsRow(EmpolyeeAct);
                 DbManager.SaveChanges();
                 //==================================================================
                 Db.EmployeesRow emp = DbManager.ShopData.Employees.NewEmployeesRow();
@@ -71,13 +84,14 @@ namespace Shop.Employees
                 emp.Phone = txtPhone.Text;
                 emp.StartWorkAt =(DateTime ) WorkPicker.Value ;
                 emp.Salary = Convert.ToDouble (txtSalary.Text);
-                emp.AccountID = act.ID;
+                emp.AccountID = EmpolyeeAct.ID;
                 DbManager.ShopData.Employees.AddEmployeesRow(emp);
                 DbManager.SaveChanges();
-                MessageBox.Show("تــم الحــــــفظ بنجــاح");
+                Alert.Info("تــم الحــــــفظ بنجــاح");
+         
                 ClearTxt();
-                PopulaetDgv();
-                //FrmEmployeesManager_Load(sender, e);
+               // PopulaetDgv();
+                FrmEmployeesManager_Load(sender, e);
             }
         }
         void ClearTxt()
@@ -109,6 +123,39 @@ namespace Shop.Employees
             {
                 EmployeesCmd.DeleteEmployee(rw);
                 FrmEmployeesManager_Load(sender, e);
+            }
+        }
+
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchBox.Text != "")
+            {
+
+                List<Db.EmployeesRow> LstEmployeess = (from c in EmployeesCmd.GetAllEmployees()
+                                                       where c.EmployeeName.Contains(SearchBox.Text)
+                                                       select c).ToList();
+
+
+                DgvEmployees.Rows.Clear();
+                foreach (var emp in LstEmployeess)
+                {
+                    DgvEmployees.Rows.Add(new string[] {emp.ID .ToString (),
+                        emp .EmployeeName ,emp.Address , emp.Phone ,
+                       emp.Salary .ToString (), emp.StartWorkAt.ToString () , emp.AccountID .ToString ()
+                    });
+                }
+            }
+            else
+            {
+                List<Db.EmployeesRow> LstEmployeess = EmployeesCmd.GetAllEmployees();
+                DgvEmployees.Rows.Clear();
+                foreach (var emp in LstEmployeess)
+                {
+                    DgvEmployees.Rows.Add(new string[] {emp.ID .ToString (),
+                        emp .EmployeeName ,emp.Address , emp.Phone ,
+                       emp.Salary .ToString (), emp.StartWorkAt.ToString () , emp.AccountID .ToString ()
+                    });
+                }
             }
         }
 

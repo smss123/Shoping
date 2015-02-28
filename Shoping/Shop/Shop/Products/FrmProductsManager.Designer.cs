@@ -29,55 +29,31 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.AddNewProduct = new System.Windows.Forms.ToolStripMenuItem();
-            this.FrishBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.DgvProducts = new System.Windows.Forms.DataGridView();
             this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.AddNewProduct = new System.Windows.Forms.ToolStripMenuItem();
+            this.FrishBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProducts)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DgvProducts);
-            this.groupBox1.Location = new System.Drawing.Point(12, 51);
+            this.groupBox1.Location = new System.Drawing.Point(12, 75);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(566, 368);
+            this.groupBox1.Size = new System.Drawing.Size(566, 312);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "قـــــــــائمة المنتجــــــــات الموجــــــوده";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddNewProduct,
-            this.FrishBtn});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(599, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // AddNewProduct
-            // 
-            this.AddNewProduct.Name = "AddNewProduct";
-            this.AddNewProduct.Size = new System.Drawing.Size(138, 20);
-            this.AddNewProduct.Text = "أضــــــــافة منـــج جـــــديد";
-            this.AddNewProduct.Click += new System.EventHandler(this.AddNewProduct_Click);
-            // 
-            // FrishBtn
-            // 
-            this.FrishBtn.Name = "FrishBtn";
-            this.FrishBtn.Size = new System.Drawing.Size(141, 20);
-            this.FrishBtn.Text = "تحــــــــــديث البـــــــــيانات";
-            this.FrishBtn.Click += new System.EventHandler(this.FrishBtn_Click);
             // 
             // DgvProducts
             // 
@@ -96,7 +72,7 @@
             this.DgvProducts.Name = "DgvProducts";
             this.DgvProducts.ReadOnly = true;
             this.DgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvProducts.Size = new System.Drawing.Size(541, 326);
+            this.DgvProducts.Size = new System.Drawing.Size(541, 269);
             this.DgvProducts.TabIndex = 0;
             this.DgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProducts_CellClick);
             // 
@@ -139,12 +115,59 @@
             this.ColDelete.UseColumnTextForButtonValue = true;
             this.ColDelete.Width = 50;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddNewProduct,
+            this.FrishBtn});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(599, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // AddNewProduct
+            // 
+            this.AddNewProduct.Name = "AddNewProduct";
+            this.AddNewProduct.Size = new System.Drawing.Size(138, 20);
+            this.AddNewProduct.Text = "أضــــــــافة منـــج جـــــديد";
+            this.AddNewProduct.Click += new System.EventHandler(this.AddNewProduct_Click);
+            // 
+            // FrishBtn
+            // 
+            this.FrishBtn.Name = "FrishBtn";
+            this.FrishBtn.Size = new System.Drawing.Size(141, 20);
+            this.FrishBtn.Text = "تحــــــــــديث البـــــــــيانات";
+            this.FrishBtn.Click += new System.EventHandler(this.FrishBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(566, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "بحث ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(47, 38);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(322, 22);
+            this.txtName.TabIndex = 3;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
             // FrmProductsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(599, 442);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -157,9 +180,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmProductsManager_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProducts)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +200,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescrip;
         private System.Windows.Forms.DataGridViewButtonColumn ColEdit;
         private System.Windows.Forms.DataGridViewButtonColumn ColDelete;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtName;
     }
 }

@@ -24,6 +24,20 @@ namespace Shop.Users
           {
               DgvUsers.Rows.Add(new string[] { item.ID.ToString(), item.UserName });
           }
+
+
+          DgvUsers.RowHeadersWidth = 70;
+          DgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+          DgvUsers.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+          DgvUsers.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+          foreach (DataGridViewRow R in DgvUsers.Rows)
+          {
+              R.HeaderCell.Value = (R.Index + 1).ToString();
+
+          }
+
         }
 
         private void AddUserBtn_Click(object sender, EventArgs e)

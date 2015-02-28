@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Shop.Customers
+namespace Shop.Sells
 {
-    public partial class FrmEditCustomers : Form
+    public partial class FrmSellsInvoices : Form
     {
-        public FrmEditCustomers()
+        public FrmSellsInvoices()
         {
             InitializeComponent();
         }

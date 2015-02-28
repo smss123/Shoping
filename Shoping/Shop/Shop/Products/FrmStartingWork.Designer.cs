@@ -37,6 +37,7 @@
             this.ExpireValue = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,14 +49,13 @@
             this.CmbSuppliers = new System.Windows.Forms.ComboBox();
             this.CmbCategories = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ProductsTree = new System.Windows.Forms.TreeView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.CollapseAllBtn = new System.Windows.Forms.Button();
             this.ExpanedAllBtn = new System.Windows.Forms.Button();
+            this.ProductsTree = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.QuitBtn = new System.Windows.Forms.Button();
-            this.SaveBtn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,9 +79,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.CmbSuppliers);
             this.groupBox1.Controls.Add(this.CmbCategories);
-            this.groupBox1.Location = new System.Drawing.Point(38, 50);
+            this.groupBox1.Location = new System.Drawing.Point(38, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 320);
+            this.groupBox1.Size = new System.Drawing.Size(298, 325);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيـانات المنــــتج";
@@ -100,32 +100,33 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(247, 194);
+            this.label10.Location = new System.Drawing.Point(247, 82);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 15);
+            this.label10.Size = new System.Drawing.Size(37, 15);
             this.label10.TabIndex = 22;
-            this.label10.Text = "العنصر";
+            this.label10.Text = "الصتف";
             // 
             // txtItemName
             // 
             this.txtItemName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtItemName.Location = new System.Drawing.Point(104, 191);
+            this.txtItemName.Location = new System.Drawing.Point(21, 79);
             this.txtItemName.Name = "txtItemName";
-            this.txtItemName.Size = new System.Drawing.Size(133, 22);
+            this.txtItemName.Size = new System.Drawing.Size(216, 22);
             this.txtItemName.TabIndex = 6;
+            this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ExpireValue
             // 
             this.ExpireValue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ExpireValue.Location = new System.Drawing.Point(21, 120);
+            this.ExpireValue.Location = new System.Drawing.Point(21, 174);
             this.ExpireValue.Name = "ExpireValue";
-            this.ExpireValue.Size = new System.Drawing.Size(157, 22);
+            this.ExpireValue.Size = new System.Drawing.Size(177, 22);
             this.ExpireValue.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(204, 126);
+            this.label7.Location = new System.Drawing.Point(211, 180);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 15);
             this.label7.TabIndex = 19;
@@ -134,24 +135,39 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(247, 250);
+            this.label6.Location = new System.Drawing.Point(247, 243);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 15);
             this.label6.TabIndex = 17;
             this.label6.Text = "الكمية";
             // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveBtn.Image = global::Shop.Properties.Resources.page_save;
+            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SaveBtn.Location = new System.Drawing.Point(21, 268);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(216, 33);
+            this.SaveBtn.TabIndex = 9;
+            this.SaveBtn.Text = "حـــــفظ";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
             // txtQty
             // 
             this.txtQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtQty.Location = new System.Drawing.Point(104, 247);
+            this.txtQty.Location = new System.Drawing.Point(21, 240);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(133, 22);
+            this.txtQty.Size = new System.Drawing.Size(216, 22);
             this.txtQty.TabIndex = 8;
+            this.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(246, 163);
+            this.label3.Location = new System.Drawing.Point(246, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 15);
             this.label3.TabIndex = 15;
@@ -160,7 +176,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(247, 222);
+            this.label4.Location = new System.Drawing.Point(247, 215);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 15);
             this.label4.TabIndex = 14;
@@ -169,10 +185,12 @@
             // txtPrice
             // 
             this.txtPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtPrice.Location = new System.Drawing.Point(104, 219);
+            this.txtPrice.Location = new System.Drawing.Point(21, 212);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(133, 22);
+            this.txtPrice.Size = new System.Drawing.Size(216, 22);
             this.txtPrice.TabIndex = 7;
+            this.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // CmbUnitType
             // 
@@ -181,15 +199,15 @@
             this.CmbUnitType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.CmbUnitType.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.CmbUnitType.FormattingEnabled = true;
-            this.CmbUnitType.Location = new System.Drawing.Point(104, 160);
+            this.CmbUnitType.Location = new System.Drawing.Point(21, 136);
             this.CmbUnitType.Name = "CmbUnitType";
-            this.CmbUnitType.Size = new System.Drawing.Size(133, 23);
+            this.CmbUnitType.Size = new System.Drawing.Size(216, 23);
             this.CmbUnitType.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 89);
+            this.label5.Location = new System.Drawing.Point(243, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 15);
             this.label5.TabIndex = 11;
@@ -220,7 +238,7 @@
             this.CmbSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.CmbSuppliers.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.CmbSuppliers.FormattingEnabled = true;
-            this.CmbSuppliers.Location = new System.Drawing.Point(21, 86);
+            this.CmbSuppliers.Location = new System.Drawing.Point(21, 107);
             this.CmbSuppliers.Name = "CmbSuppliers";
             this.CmbSuppliers.Size = new System.Drawing.Size(216, 23);
             this.CmbSuppliers.TabIndex = 3;
@@ -245,12 +263,38 @@
             this.groupBox2.Controls.Add(this.ExpanedAllBtn);
             this.groupBox2.Controls.Add(this.ProductsTree);
             this.groupBox2.Controls.Add(this.QuitBtn);
-            this.groupBox2.Location = new System.Drawing.Point(358, 47);
+            this.groupBox2.Location = new System.Drawing.Point(358, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(366, 349);
+            this.groupBox2.Size = new System.Drawing.Size(366, 325);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "قـــــائمة المنـتتجات الموجوده حــاليا";
+            // 
+            // CollapseAllBtn
+            // 
+            this.CollapseAllBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CollapseAllBtn.Image = global::Shop.Properties.Resources.upcoming_work;
+            this.CollapseAllBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CollapseAllBtn.Location = new System.Drawing.Point(183, 288);
+            this.CollapseAllBtn.Name = "CollapseAllBtn";
+            this.CollapseAllBtn.Size = new System.Drawing.Size(70, 33);
+            this.CollapseAllBtn.TabIndex = 8;
+            this.CollapseAllBtn.Text = "طي";
+            this.CollapseAllBtn.UseVisualStyleBackColor = true;
+            this.CollapseAllBtn.Click += new System.EventHandler(this.CollapseAllBtn_Click);
+            // 
+            // ExpanedAllBtn
+            // 
+            this.ExpanedAllBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExpanedAllBtn.Image = global::Shop.Properties.Resources.category1;
+            this.ExpanedAllBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ExpanedAllBtn.Location = new System.Drawing.Point(259, 286);
+            this.ExpanedAllBtn.Name = "ExpanedAllBtn";
+            this.ExpanedAllBtn.Size = new System.Drawing.Size(82, 33);
+            this.ExpanedAllBtn.TabIndex = 1;
+            this.ExpanedAllBtn.Text = "أظهار";
+            this.ExpanedAllBtn.UseVisualStyleBackColor = true;
+            this.ExpanedAllBtn.Click += new System.EventHandler(this.ExpanedAllBtn_Click);
             // 
             // ProductsTree
             // 
@@ -258,11 +302,11 @@
             this.ProductsTree.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductsTree.ImageIndex = 0;
             this.ProductsTree.ImageList = this.imageList1;
-            this.ProductsTree.Location = new System.Drawing.Point(26, 24);
+            this.ProductsTree.Location = new System.Drawing.Point(6, 25);
             this.ProductsTree.Name = "ProductsTree";
             this.ProductsTree.RightToLeftLayout = true;
             this.ProductsTree.SelectedImageIndex = 0;
-            this.ProductsTree.Size = new System.Drawing.Size(315, 278);
+            this.ProductsTree.Size = new System.Drawing.Size(335, 257);
             this.ProductsTree.TabIndex = 0;
             // 
             // imageList1
@@ -274,6 +318,19 @@
             this.imageList1.Images.SetKeyName(2, "basket.png");
             this.imageList1.Images.SetKeyName(3, "statistics.png");
             this.imageList1.Images.SetKeyName(4, "bank.png");
+            // 
+            // QuitBtn
+            // 
+            this.QuitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QuitBtn.Image = global::Shop.Properties.Resources.home;
+            this.QuitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.QuitBtn.Location = new System.Drawing.Point(6, 288);
+            this.QuitBtn.Name = "QuitBtn";
+            this.QuitBtn.Size = new System.Drawing.Size(159, 33);
+            this.QuitBtn.TabIndex = 7;
+            this.QuitBtn.Text = "أغـــــــلاق";
+            this.QuitBtn.UseVisualStyleBackColor = true;
+            this.QuitBtn.Click += new System.EventHandler(this.QuitBtn_Click);
             // 
             // label8
             // 
@@ -299,59 +356,6 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "هذه النافذة تستخدم لمرة واحده عند بداية  العمل لأدخال المنتجات الموجوده مسبقا";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CollapseAllBtn
-            // 
-            this.CollapseAllBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CollapseAllBtn.Image = global::Shop.Properties.Resources.upcoming_work;
-            this.CollapseAllBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CollapseAllBtn.Location = new System.Drawing.Point(183, 308);
-            this.CollapseAllBtn.Name = "CollapseAllBtn";
-            this.CollapseAllBtn.Size = new System.Drawing.Size(70, 33);
-            this.CollapseAllBtn.TabIndex = 8;
-            this.CollapseAllBtn.Text = "طي";
-            this.CollapseAllBtn.UseVisualStyleBackColor = true;
-            this.CollapseAllBtn.Click += new System.EventHandler(this.CollapseAllBtn_Click);
-            // 
-            // ExpanedAllBtn
-            // 
-            this.ExpanedAllBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ExpanedAllBtn.Image = global::Shop.Properties.Resources.category1;
-            this.ExpanedAllBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ExpanedAllBtn.Location = new System.Drawing.Point(259, 308);
-            this.ExpanedAllBtn.Name = "ExpanedAllBtn";
-            this.ExpanedAllBtn.Size = new System.Drawing.Size(82, 33);
-            this.ExpanedAllBtn.TabIndex = 1;
-            this.ExpanedAllBtn.Text = "أظهار";
-            this.ExpanedAllBtn.UseVisualStyleBackColor = true;
-            this.ExpanedAllBtn.Click += new System.EventHandler(this.ExpanedAllBtn_Click);
-            // 
-            // QuitBtn
-            // 
-            this.QuitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QuitBtn.Image = global::Shop.Properties.Resources.home;
-            this.QuitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.QuitBtn.Location = new System.Drawing.Point(26, 308);
-            this.QuitBtn.Name = "QuitBtn";
-            this.QuitBtn.Size = new System.Drawing.Size(77, 33);
-            this.QuitBtn.TabIndex = 7;
-            this.QuitBtn.Text = "أغـــــــلاق";
-            this.QuitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.QuitBtn.UseVisualStyleBackColor = true;
-            this.QuitBtn.Click += new System.EventHandler(this.QuitBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveBtn.Image = global::Shop.Properties.Resources.page_save;
-            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SaveBtn.Location = new System.Drawing.Point(104, 281);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(133, 33);
-            this.SaveBtn.TabIndex = 9;
-            this.SaveBtn.Text = "حـــــفظ";
-            this.SaveBtn.UseVisualStyleBackColor = true;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // FrmStartingWork
             // 

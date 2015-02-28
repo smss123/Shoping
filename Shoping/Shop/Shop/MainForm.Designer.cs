@@ -38,17 +38,15 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.QuitBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.المشترياتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.أدارةالمشترياتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.أدرارةالمخازنللمشترياتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SellManagerBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.الفواتيرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InvoicesBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.StartTableBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.AddCategoriesBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.AddNewProductsBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.المبيعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.أدارةالمبيعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.أدارةالمخازنللمبيعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.الفواتيرToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.الحساباتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +64,7 @@
             this.ShopBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ProductItemsBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +80,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(820, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(775, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,64 +140,60 @@
             // المشترياتToolStripMenuItem
             // 
             this.المشترياتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.أدارةالمشترياتToolStripMenuItem,
-            this.أدرارةالمخازنللمشترياتToolStripMenuItem,
+            this.SellManagerBtn,
             this.toolStripMenuItem4,
-            this.الفواتيرToolStripMenuItem,
+            this.InvoicesBtn,
             this.toolStripMenuItem7,
             this.StartTableBtn,
             this.AddCategoriesBtn,
-            this.AddNewProductsBtn});
+            this.AddNewProductsBtn,
+            this.ProductItemsBtn});
             this.المشترياتToolStripMenuItem.Name = "المشترياتToolStripMenuItem";
             this.المشترياتToolStripMenuItem.Size = new System.Drawing.Size(65, 19);
             this.المشترياتToolStripMenuItem.Text = "المشتريات";
             // 
-            // أدارةالمشترياتToolStripMenuItem
+            // SellManagerBtn
             // 
-            this.أدارةالمشترياتToolStripMenuItem.Name = "أدارةالمشترياتToolStripMenuItem";
-            this.أدارةالمشترياتToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.أدارةالمشترياتToolStripMenuItem.Text = "أدارة المشتريات";
-            // 
-            // أدرارةالمخازنللمشترياتToolStripMenuItem
-            // 
-            this.أدرارةالمخازنللمشترياتToolStripMenuItem.Name = "أدرارةالمخازنللمشترياتToolStripMenuItem";
-            this.أدرارةالمخازنللمشترياتToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.أدرارةالمخازنللمشترياتToolStripMenuItem.Text = "أدرارة المخازن للمشتريات";
+            this.SellManagerBtn.Name = "SellManagerBtn";
+            this.SellManagerBtn.Size = new System.Drawing.Size(152, 22);
+            this.SellManagerBtn.Text = "أدارة المشتريات";
+            this.SellManagerBtn.Click += new System.EventHandler(this.SellManagerBtn_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(186, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(149, 6);
             // 
-            // الفواتيرToolStripMenuItem
+            // InvoicesBtn
             // 
-            this.الفواتيرToolStripMenuItem.Name = "الفواتيرToolStripMenuItem";
-            this.الفواتيرToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.الفواتيرToolStripMenuItem.Text = "الفواتير";
+            this.InvoicesBtn.Name = "InvoicesBtn";
+            this.InvoicesBtn.Size = new System.Drawing.Size(152, 22);
+            this.InvoicesBtn.Text = "الفواتير";
+            this.InvoicesBtn.Click += new System.EventHandler(this.InvoicesBtn_Click);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(186, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(149, 6);
             // 
             // StartTableBtn
             // 
             this.StartTableBtn.Name = "StartTableBtn";
-            this.StartTableBtn.Size = new System.Drawing.Size(189, 22);
+            this.StartTableBtn.Size = new System.Drawing.Size(152, 22);
             this.StartTableBtn.Text = "بضاعه أول المده";
             this.StartTableBtn.Click += new System.EventHandler(this.StartTableBtn_Click);
             // 
             // AddCategoriesBtn
             // 
             this.AddCategoriesBtn.Name = "AddCategoriesBtn";
-            this.AddCategoriesBtn.Size = new System.Drawing.Size(189, 22);
+            this.AddCategoriesBtn.Size = new System.Drawing.Size(152, 22);
             this.AddCategoriesBtn.Text = "أدارة المنتجات";
             this.AddCategoriesBtn.Click += new System.EventHandler(this.AddCategoriesBtn_Click);
             // 
             // AddNewProductsBtn
             // 
             this.AddNewProductsBtn.Name = "AddNewProductsBtn";
-            this.AddNewProductsBtn.Size = new System.Drawing.Size(189, 22);
+            this.AddNewProductsBtn.Size = new System.Drawing.Size(152, 22);
             this.AddNewProductsBtn.Text = "أدارة التصنيفات";
             this.AddNewProductsBtn.Click += new System.EventHandler(this.AddNewProductsBtn_Click);
             // 
@@ -206,7 +201,6 @@
             // 
             this.المبيعاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.أدارةالمبيعاتToolStripMenuItem,
-            this.أدارةالمخازنللمبيعاتToolStripMenuItem,
             this.toolStripMenuItem5,
             this.الفواتيرToolStripMenuItem1});
             this.المبيعاتToolStripMenuItem.Name = "المبيعاتToolStripMenuItem";
@@ -216,24 +210,18 @@
             // أدارةالمبيعاتToolStripMenuItem
             // 
             this.أدارةالمبيعاتToolStripMenuItem.Name = "أدارةالمبيعاتToolStripMenuItem";
-            this.أدارةالمبيعاتToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.أدارةالمبيعاتToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.أدارةالمبيعاتToolStripMenuItem.Text = "أدارة المبيعات";
-            // 
-            // أدارةالمخازنللمبيعاتToolStripMenuItem
-            // 
-            this.أدارةالمخازنللمبيعاتToolStripMenuItem.Name = "أدارةالمخازنللمبيعاتToolStripMenuItem";
-            this.أدارةالمخازنللمبيعاتToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.أدارةالمخازنللمبيعاتToolStripMenuItem.Text = "أدارة المخازن للمبيعات";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(170, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(132, 6);
             // 
             // الفواتيرToolStripMenuItem1
             // 
             this.الفواتيرToolStripMenuItem1.Name = "الفواتيرToolStripMenuItem1";
-            this.الفواتيرToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
+            this.الفواتيرToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.الفواتيرToolStripMenuItem1.Text = "الفواتير";
             // 
             // الحساباتToolStripMenuItem
@@ -250,26 +238,26 @@
             // AccountsBtn
             // 
             this.AccountsBtn.Name = "AccountsBtn";
-            this.AccountsBtn.Size = new System.Drawing.Size(152, 22);
+            this.AccountsBtn.Size = new System.Drawing.Size(149, 22);
             this.AccountsBtn.Text = "أدارة الحسابات";
             this.AccountsBtn.Click += new System.EventHandler(this.AccountsBtn_Click);
             // 
             // DailyBtn
             // 
             this.DailyBtn.Name = "DailyBtn";
-            this.DailyBtn.Size = new System.Drawing.Size(152, 22);
+            this.DailyBtn.Size = new System.Drawing.Size(149, 22);
             this.DailyBtn.Text = "الحسابات اليومية";
             this.DailyBtn.Click += new System.EventHandler(this.DailyBtn_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(146, 6);
             // 
             // StatisticesBtn
             // 
             this.StatisticesBtn.Name = "StatisticesBtn";
-            this.StatisticesBtn.Size = new System.Drawing.Size(152, 22);
+            this.StatisticesBtn.Size = new System.Drawing.Size(149, 22);
             this.StatisticesBtn.Text = "ميزان المراجعه";
             // 
             // الخدماتToolStripMenuItem
@@ -331,10 +319,10 @@
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.statusStrip1.Location = new System.Drawing.Point(0, 553);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 516);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(26, 0, 1, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(820, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(775, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -343,12 +331,19 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // ProductItemsBtn
+            // 
+            this.ProductItemsBtn.Name = "ProductItemsBtn";
+            this.ProductItemsBtn.Size = new System.Drawing.Size(152, 22);
+            this.ProductItemsBtn.Text = "الاصــــــــــناف";
+            this.ProductItemsBtn.Click += new System.EventHandler(this.ProductItemsBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(820, 575);
+            this.ClientSize = new System.Drawing.Size(775, 538);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -380,11 +375,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem QuitBtn;
         private System.Windows.Forms.ToolStripMenuItem المشترياتToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem أدارةالمشترياتToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem أدرارةالمخازنللمشترياتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SellManagerBtn;
         private System.Windows.Forms.ToolStripMenuItem المبيعاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem أدارةالمبيعاتToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem أدارةالمخازنللمبيعاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الحساباتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AccountsBtn;
         private System.Windows.Forms.ToolStripMenuItem DailyBtn;
@@ -398,7 +391,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem StatisticesBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem الفواتيرToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InvoicesBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem الفواتيرToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
@@ -408,5 +401,6 @@
         private System.Windows.Forms.ToolStripMenuItem AddCategoriesBtn;
         private System.Windows.Forms.ToolStripMenuItem AddNewProductsBtn;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem ProductItemsBtn;
     }
 }

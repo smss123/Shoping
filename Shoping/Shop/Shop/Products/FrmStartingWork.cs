@@ -31,9 +31,9 @@ namespace Shop.Accountant
         {
             #region "  ^^^ Check Controls Vales     "
 
-            if (CmbProductName.Text == "") { Operation.ShowMassege("أضــــــف النـــتج", this); return; }
-            if (txtQty.Text == "") { Operation.ShowMassege("أضــــــف الكميــــــه", this); return; }
-            if (txtPrice.Text == "") { Operation.ShowMassege("أضــــــف الســـــــغر", this); return; }
+            if (CmbProductName.Text == "") { Alert.Error("أضــــــف النـــتج"); return; }
+            if (txtQty.Text == "") { Alert.Error("أضــــــف الكميــــــه"); return; }
+            if (txtPrice.Text == "") { Alert.Error("أضــــــف الســـــــغر"); return; }
           
             #endregion
 
@@ -80,11 +80,9 @@ namespace Shop.Accountant
                    #region "   ^^^^ Check Item    "
 
                       var  CurrentItem = ProductItemesCmd . ItemsByName(txtItemName .Text );
-                     if(CurrentItem .ID != 0){ MessageBox.Show ("موجـــــود من قبل") ;Broom (); return ;}
+                     if(CurrentItem .ID != 0){ MessageBox.Show ("موجـــــود من قــــــبل") ;Broom (); return ;}
 
                    #endregion
-
-          
 
              }
              catch (Exception)
@@ -93,14 +91,12 @@ namespace Shop.Accountant
                  //===============================================================
                  // Start Save At ProductItems Table :
                  Db.ProductItemsRow pirw = DbManager.ShopData.ProductItems.NewProductItemsRow();
+
                  pirw.ItemName = txtItemName.Text;
                  pirw.ProductID = PrdID;
-                 pirw.SupplierID = SuppId;
-                 pirw.Qty = int.Parse(txtQty.Text);
-                 pirw.ItemPrice = int.Parse(txtPrice.Text);
+                 pirw.SupplierID = SuppId;                
                  pirw.ItemUnit = CmbUnitType.Text;
-                 pirw.TotalCostPrice = int.Parse(txtPrice.Text) * int.Parse(txtQty.Text);
-                 pirw.Comment = "";
+                          
                  DbManager.ShopData.ProductItems.AddProductItemsRow(pirw);
                  DbManager.SaveChanges();
                  //============================================================================
@@ -110,10 +106,12 @@ namespace Shop.Accountant
                  itmstr.MainStoreID = stor.ID;
                  itmstr.AvailableQty = int.Parse(txtQty.Text);
                  itmstr.ExpireDate = ExpireValue.Value.ToShortDateString();
+                 itmstr.Price = int.Parse(txtPrice.Text);
+                 itmstr.CostPrice = int.Parse(txtPrice.Text) * int.Parse(txtQty.Text);
                  DbManager.ShopData.ItemesStore.AddItemesStoreRow(itmstr);
                  DbManager.SaveChanges();
                  //============================================================================
-                 Operation.ShowMassege("تــــــم الحــــــفظ", this);
+                 Alert.Info ("تــــــم الحــــــفظ");
                  FrmAddProduct_Load(sender, e);
              }
           
@@ -294,6 +292,41 @@ namespace Shop.Accountant
             ProductsTree.CollapseAll();
         }
 
-    
+
+        #region "   KeyPress "
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (ch == 46 && txtPrice.Text.IndexOf(".") != -1)
+            {
+
+                e.Handled = true;
+                return;
+            }
+
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (ch == 46 && txtQty.Text.IndexOf(".") != -1)
+            {
+
+                e.Handled = true;
+                return;
+            }
+
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        #endregion
     }
 }

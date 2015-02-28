@@ -22,7 +22,7 @@ namespace Shop.Accountant
             r.Description = txtDescription.Text;
             r.CategoryName = txtCategoryName.Text;
             CategoryCmd.NewCategory(r);
-            Operation.ShowMassege("تـــــــم الحـــــــــفظ",this );
+            Alert.Info ("تـــــــم الحـــــــــفظ" );
             FrmAddCategory_Load( sender,  e);
         }
      
@@ -47,6 +47,19 @@ namespace Shop.Accountant
                 i++;
                 DgvCategories.Rows.Add(new string[] {Catg .ID .ToString (),Catg .CategoryName  });
             }
+
+            DgvCategories.RowHeadersWidth = 70;
+            DgvCategories.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvCategories.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvCategories.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            foreach (DataGridViewRow R in DgvCategories.Rows)
+            {
+                R.HeaderCell.Value = (R.Index + 1).ToString();
+
+            }
+
         }
         private void FrmAddCategory_Load(object sender, EventArgs e)
         {

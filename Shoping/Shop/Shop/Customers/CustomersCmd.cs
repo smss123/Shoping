@@ -12,11 +12,22 @@ namespace Shop.Customers
 
         public static bool NewCustomer(Db.CustomersRow cst)
         {
+            Db.AccountsRow CustomerAct = DbManager.ShopData.Accounts.NewAccountsRow();
+            CustomerAct.AccountName = cst.CustomerName ;
+            CustomerAct.Description = "Customer";
+            CustomerAct.AccountCategoryID = 3;
+            DbManager.ShopData.Accounts.AddAccountsRow(CustomerAct);
+            DbManager.SaveChanges();
+
+
+
+
+
             Db.CustomersRow c = DbManager.ShopData.Customers.NewCustomersRow();
             c.CustomerName = cst.CustomerName;
             c.Address = cst.Address;
             c.Phone = cst.Phone;
-            c.AccountID = cst.AccountID;
+            c.AccountID = CustomerAct.ID ;
 
             DbManager.ShopData.Customers.AddCustomersRow(c);
             DbManager.SaveChanges();

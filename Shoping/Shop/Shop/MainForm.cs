@@ -4,6 +4,7 @@ using Shop.Backup;
 using Shop.Customers;
 using Shop.Employees;
 using Shop.Products;
+using Shop.Sells;
 using Shop.Suppliers;
 using Shop.Users;
 using System;
@@ -31,11 +32,7 @@ namespace Shop
             frm.ShowDialog();
         }
 
-        //private void CategoryBtn_Click(object sender, EventArgs e)
-        //{
-        //    //FrmAddCategory frm = new FrmAddCategory();
-        //    //frm.ShowDialog();
-        //}
+
         private void SetBalloonTip()
         {
             notifyIcon1.Icon = SystemIcons.Information;            
@@ -49,10 +46,9 @@ namespace Shop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            SetBalloonTip();
-
-          CreateAccountCategories();
         
+          SetBalloonTip();
+          CreateAccountCategories();               
         }
 
         private void SuppliersBtn_Click(object sender, EventArgs e)
@@ -66,13 +62,6 @@ namespace Shop
             FrmAccountsManager frm = new FrmAccountsManager();
             frm.ShowDialog();
         }
-
-        //private void ProductsBtn_Click(object sender, EventArgs e)
-        //{
-        //    //FrmAddProduct frm = new FrmAddProduct();
-        //    //frm.ShowDialog();
-
-        //}
 
         private void QuitBtn_Click(object sender, EventArgs e)
         {
@@ -95,34 +84,18 @@ namespace Shop
         void CreateAccountCategories()
         {
             List<string> LstCategoriestName = new List<string>();
-            LstCategoriestName.AddRange  (new string []{
-                "رأس المال",
-                "المشروع",
-                "العمال",
-                "الزبائن",
-                "الموردين",
-                "المصروفات",
-                "المبيعات",
-                "المشتريات",
-                "حسابات أخرى" });
+            LstCategoriestName.AddRange(new string[] { "الصندوق", "الموردين", "العملاء", "العمال", "حسابات أخرى" });
+      
             //===============================================================================
             List<string> LstCategoriesDescription= new List<string>();
-            LstCategoriesDescription.AddRange(new string[] { 
-                "الموازنه الابتدائية للمشروع",
-                "مراقبة حركة المشروع",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "" });
+            LstCategoriesDescription.AddRange(new string[] { "الصندوق", "الموردين", "العملاء", "العمال", "حسابات أخرى" });
+         
             //===============================================================================
             int count = (from c in DbManager.ShopData.AccountCategories select c.ID).Count();
             if (count == 0)
             {
 
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i <= 4; i++)
                 {
                 Db.AccountCategoriesRow rw =DbManager.ShopData.AccountCategories.NewAccountCategoriesRow();
                 rw.CategoryName = LstCategoriestName[i];
@@ -171,6 +144,25 @@ namespace Shop
             FrmAccountDaily frm = new FrmAccountDaily();
             frm.ShowDialog();
         }
+
+        private void SellManagerBtn_Click(object sender, EventArgs e)
+        {
+            FrmSellManager frm = new FrmSellManager();
+            frm.ShowDialog();
+        }
+
+        private void InvoicesBtn_Click(object sender, EventArgs e)
+        {
+            FrmSellsInvoices frm = new FrmSellsInvoices();
+            frm.ShowDialog();
+        }
+
+        private void ProductItemsBtn_Click(object sender, EventArgs e)
+        {
+            FrmProductItems frm = new FrmProductItems();
+            frm.ShowDialog();
+        }
+
         
     }
 }

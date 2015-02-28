@@ -68,33 +68,45 @@ namespace Shop.Users
 
         private void SaveChangesBtn_Click(object sender, EventArgs e)
         {
-            Db.TheShopRow tr = (from c in DbManager.ShopData.TheShop where c.ID == 1 select c).Single();
-
             Db.TheShopRow shp = DbManager.ShopData.TheShop.NewTheShopRow();
-
-            if (tr.ID  == 0)
+            try
             {
-                shp.ShopName = txtName.Text;
-                shp.Address = txtAddress.Text;
-                shp.Phone = txtPhone.Text;
-                if (Op.FileName  != "") { shp.LogoPath = Op.FileName; }
-                DbManager.ShopData.TheShop.AddTheShopRow(shp);
-                DbManager.SaveChanges();
-                Operation.ShowMassege("تــــم حـــــفظ التغيــــيرات", this);
-          
-            }
-            else
-            {
+            Db.TheShopRow tr = (from c in DbManager.ShopData.TheShop where c.ID == 1 select c).Single();
+              // Edit Informations :
                 shp = (from c in DbManager.ShopData.TheShop where c.ID == 1 select c).Single(); ;
                 shp.ShopName = txtName.Text;
                 shp.Address = txtAddress.Text;
                 shp.Phone = txtPhone.Text;
                 if (Op.FileName != "") { shp.LogoPath = Op.FileName; }
                 EditOldInformation(shp);
-                Operation.ShowMassege("تــــم حـــــفظ التغيــــيرات", this);
-              
+
+                Alert.Info ("تــــم حـــــفظ التغيــــيرات");
+  
             }
-        
+            catch (Exception)
+            {
+                // New Informations :
+                // Create Account
+                Db.AccountsRow ShopAct = DbManager.ShopData.Accounts.NewAccountsRow();
+                ShopAct.AccountName = txtName.Text;
+                ShopAct.Description = "Shop";
+                ShopAct.AccountCategoryID = 1;
+                DbManager.ShopData.Accounts.AddAccountsRow(ShopAct);
+                DbManager.SaveChanges();
+
+                shp.ShopName = txtName.Text;
+                shp.Address = txtAddress.Text;
+                shp.Phone = txtPhone.Text;
+                shp.AccountID = ShopAct.ID;
+                if (Op.FileName  != "") { shp.LogoPath = Op.FileName; }
+                DbManager.ShopData.TheShop.AddTheShopRow(shp);
+                DbManager.SaveChanges();
+
+              
+
+
+                Alert.Info ("تــــم حـــــفظ التغيــــيرات");
+            }
         }
 
         private void FrmHome_Load(object sender, EventArgs e)
@@ -109,7 +121,7 @@ namespace Shop.Users
             }
             catch (Exception)
             {
-                Operation.ShowMassege("لاتوجــــــــد بيانات خاصة ,,, يجب أدخالها لتظهر في التقارير والفواتير", this);
+                Alert.Warning ("لاتوجــــــــد بيانات خاصة ,,, يجب أدخالها لتظهر في التقارير والفواتير");
               
             }
         }

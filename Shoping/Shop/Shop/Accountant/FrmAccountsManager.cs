@@ -86,8 +86,8 @@ namespace Shop.Accountant
             // Create Account
             Db.AccountsRow act = DbManager.ShopData.Accounts.NewAccountsRow();
             act.AccountName = txtAccountName.Text;
-            act.Description = "Athers";
-            act.AccountCategoryID = 9;
+            act.Description = txtDescription.Text;
+            act.AccountCategoryID = 5;
             DbManager.ShopData.Accounts.AddAccountsRow(act);
             DbManager.SaveChanges();
             FrmAccountsManager_Load(sender, e);

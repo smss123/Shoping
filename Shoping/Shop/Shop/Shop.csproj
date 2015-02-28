@@ -11,6 +11,21 @@
     <AssemblyName>Shop</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +46,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>Shop.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=11.2.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -48,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accountant\AccountsCmd.cs" />
+    <Compile Include="Alert.cs" />
     <Compile Include="Customers\CustomersCmd.cs" />
     <Compile Include="Customers\FrmCustomersManager.cs">
       <SubType>Form</SubType>
@@ -85,6 +117,12 @@
     </Compile>
     <Compile Include="Products\FrmAddProduct.Designer.cs">
       <DependentUpon>FrmAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\FrmProductItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\FrmProductItems.Designer.cs">
+      <DependentUpon>FrmProductItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\FrmProductsManager.cs">
       <SubType>Form</SubType>
@@ -145,11 +183,17 @@
     <Compile Include="Operation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sales\FrmSales.cs">
+    <Compile Include="Sales\FrmAddInvoiceSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\FrmSales.Designer.cs">
-      <DependentUpon>FrmSales.cs</DependentUpon>
+    <Compile Include="Sales\FrmAddInvoiceSales.Designer.cs">
+      <DependentUpon>FrmAddInvoiceSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FrmSalesInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FrmSalesInvoices.Designer.cs">
+      <DependentUpon>FrmSalesInvoices.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\FrmSalesManager.cs">
       <SubType>Form</SubType>
@@ -158,11 +202,17 @@
       <DependentUpon>FrmSalesManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\SalesCmd.cs" />
-    <Compile Include="Sells\FrmSelles.cs">
+    <Compile Include="Sells\FrmAddInvoiceSelles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sells\FrmSelles.Designer.cs">
-      <DependentUpon>FrmSelles.cs</DependentUpon>
+    <Compile Include="Sells\FrmAddInvoiceSelles.Designer.cs">
+      <DependentUpon>FrmAddInvoiceSelles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sells\FrmSellesStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sells\FrmSellesStore.Designer.cs">
+      <DependentUpon>FrmSellesStore.cs</DependentUpon>
     </Compile>
     <Compile Include="Sells\FrmSellManager.cs">
       <SubType>Form</SubType>
@@ -170,7 +220,15 @@
     <Compile Include="Sells\FrmSellManager.Designer.cs">
       <DependentUpon>FrmSellManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sells\FrmSellsInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sells\FrmSellsInvoices.Designer.cs">
+      <DependentUpon>FrmSellsInvoices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sells\SellesCmd.cs" />
+    <Compile Include="Sells\InvoicesCmd.cs" />
+    <Compile Include="Styles.cs" />
     <Compile Include="Suppliers\FrmEditSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +296,9 @@
     <EmbeddedResource Include="Products\FrmAddProduct.resx">
       <DependentUpon>FrmAddProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Products\FrmProductItems.resx">
+      <DependentUpon>FrmProductItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Products\FrmProductsManager.resx">
       <DependentUpon>FrmProductsManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,11 +330,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Sales\FrmSales.resx">
-      <DependentUpon>FrmSales.cs</DependentUpon>
+    <EmbeddedResource Include="Sales\FrmAddInvoiceSales.resx">
+      <DependentUpon>FrmAddInvoiceSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sells\FrmSelles.resx">
-      <DependentUpon>FrmSelles.cs</DependentUpon>
+    <EmbeddedResource Include="Sales\FrmSalesManager.resx">
+      <DependentUpon>FrmSalesManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sells\FrmAddInvoiceSelles.resx">
+      <DependentUpon>FrmAddInvoiceSelles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sells\FrmSellesStore.resx">
+      <DependentUpon>FrmSellesStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sells\FrmSellManager.resx">
+      <DependentUpon>FrmSellManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sells\FrmSellsInvoices.resx">
+      <DependentUpon>FrmSellsInvoices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers\FrmEditSupplier.resx">
       <DependentUpon>FrmEditSupplier.cs</DependentUpon>
@@ -310,6 +383,7 @@
     <None Include="Db.xss">
       <DependentUpon>Db.xsd</DependentUpon>
     </None>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -352,6 +426,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\category1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BAbout.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BAlaert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BError.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BInfo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BOkey.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BWarnnig.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sasas.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -37,16 +37,16 @@ namespace Shop.Accountant
         private void SaveBtn_Click(object sender, EventArgs e)
         {
            
-            if (CmbCategories.Text == "") { Operation.ShowMassege("أختـــــــــار  التصنيف", this); return; }
+            if (CmbCategories.Text == "") { Alert.Error("أختـــــــــار  التصنيف"); return; }
             if (CategId == 0) { CmbCategories_SelectedIndexChanged(sender, e); }
-            if (CmbProducts.Text == "") { Operation.ShowMassege("أضــــــف النـــتج", this); return; }
+            if (CmbProducts.Text == "") { Alert.Error("أضــــــف النـــتج"); return; }
          
 
            
             try
             {
                 Db.ProductsRow prduct = GetOneProductByName(CmbProducts.Text);
-                Operation.ShowMassege("موجود بالفعــــــل", this);
+                Alert.Error("موجود بالفعــــــل");
                 ClearTxt();
                 return;
             }
@@ -71,7 +71,7 @@ namespace Shop.Accountant
                 DbManager.SaveChanges();
 
 
-                Operation .ShowMassege ("تــــــم الحــــــفظ",this );
+               Alert.Info  ("تــــــم الحــــــفظ");
                 ClearTxt();
             }
 
